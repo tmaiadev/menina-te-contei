@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import Button from './button';
+import Icon from './icon';
 
 const Header = ({
   categories,
@@ -39,17 +40,16 @@ const Header = ({
           {
             socialNetworks
               .map(({ id, type, link }) => (
-                <Link
+                <a
                   key={id}
                   href={link}
+                  className="nav-link nav-link--small fancy"
+                  target="_blank"
+                  rel="noopener noreferrer"
                 >
-                  <a
-                    className="nav-link fancy"
-                    target="_blank"
-                  >
-                    {type.charAt(0)}
-                  </a>
-                </Link>
+                  <Icon type={type} />
+                  <span className="sr-only">{type}</span>
+                </a>
               ))
           }
         </div>
@@ -60,6 +60,7 @@ const Header = ({
         header {
           padding: var(--size-2);
           border-bottom: solid thick var(--accent-color);
+          margin-bottom: var(--size-2);
         }
 
         .container {
@@ -74,6 +75,8 @@ const Header = ({
           flex-grow: 1;
           flex-shink: 0;
           white-space: nowrap;
+          text-align: center;
+          font-weight: thin;
         }
 
         nav {
@@ -83,6 +86,10 @@ const Header = ({
         .nav-link {
           color: var(--primary-text-color);
           padding: var(--size-1) var(--size-2);
+        }
+
+        .nav-link {
+          padding: var(--size-1);
         }
 
         .nav-link:focus {
@@ -102,7 +109,12 @@ const Header = ({
         }
 
         @media (min-width: 768px) {
+          h1 {
+            font-size: 50px;
+          }
+
           header {
+            padding-right: 0px;
             border-bottom: 0px;
             border-top: solid 5px var(--accent-color);
           }

@@ -67,6 +67,17 @@ const App = ({ children }) => (
           font-family: 'Champagne & Limousines', Arial;
         }
 
+        .sr-only {
+          display: block;
+          width: 1px;
+          height: 1px;
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          opacity: 0;
+          pointer-events: none;
+        }
+
         * {
           box-sizing: border-box;
         }
