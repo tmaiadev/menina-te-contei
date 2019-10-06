@@ -33,17 +33,20 @@ const Header = ({
             ))
         }
         <Link href="/contato">
-          <a className="nav-link fancy">CONTATO</a>
+          <a className="nav-link nav-link--eol fancy">CONTATO</a>
         </Link>
         <div className="social-networks">
-          <div className="separator" />
           {
             socialNetworks
-              .map(({ id, type, link }) => (
+              .map(({ id, type, link }, index) => (
                 <a
                   key={id}
                   href={link}
-                  className="nav-link nav-link--small fancy"
+                  className={`nav-link ${
+                    index === socialNetworks.length - 1
+                      ? 'nav-link--eol'
+                      : ''
+                  } nav-link--small fancy`}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -92,16 +95,16 @@ const Header = ({
           padding: var(--size-1);
         }
 
+        .nav-link--eol {
+          margin-right: var(--size-2);
+        }
+
         .nav-link:focus {
           background-color: var(--secondary-background-color);
         }
 
         .nav-link:hover {
           background-color: var(--tertiary-background-color);
-        }
-
-        .separator {
-          width: var(--size-2);
         }
 
         .social-networks {
@@ -116,12 +119,12 @@ const Header = ({
           header {
             padding-right: 0px;
             border-bottom: 0px;
-            border-top: solid 5px var(--accent-color);
+            border-top: solid 8px var(--accent-color);
           }
 
           nav {
             display: flex;
-            border-bottom: solid thick var(--accent-color);
+            border-bottom: solid 4px var(--accent-color);
           }
 
           .menu-button {
