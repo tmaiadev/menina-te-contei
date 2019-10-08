@@ -46,7 +46,7 @@ const App = ({ children }) => (
 
         @media (prefers-color-scheme: darked) {
           body {
-            --primary-background-color: #000;
+            --primary-background-color: #323639;
             --secondary-background-color: #3b3b3b;
             --tertiary-background-color: #62605e;
 

@@ -3,14 +3,17 @@ import PropTypes from 'prop-types';
 import App from '../components/app';
 import Bio from '../components/bio';
 import Header from '../components/header';
+import Post from '../components/post';
 import {
   getCategories,
   getSocialNetworks,
+  getLatestPost,
 } from '../helpers/db';
 
 const Home = ({
   categories,
   socialNetworks,
+  post,
 }) => (
   <App>
     <Header
@@ -20,7 +23,7 @@ const Home = ({
     <div className="container">
       <div className="layout-main-aside">
         <main>
-          MAIN
+          <Post post={post} />
         </main>
         <aside>
           <Bio />
@@ -51,6 +54,7 @@ const Home = ({
 Home.getInitialProps = async () => ({
   categories: await getCategories(),
   socialNetworks: await getSocialNetworks(),
+  post: await getLatestPost(),
 });
 
 Home.propTypes = {
@@ -67,6 +71,13 @@ Home.propTypes = {
       link: PropTypes.string,
     }),
   ).isRequired,
+  post: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    publishDate: PropTypes.string.isRequired,
+    cover: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default Home;

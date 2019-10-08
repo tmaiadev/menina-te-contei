@@ -20,7 +20,9 @@ const Bio = () => (
           padding: var(--size-2);
           will-change: transform;
           transition: transform .3s ease-in-out,
-            box-shadow .3s ease-in-out;
+            box-shadow .3s ease-in-out,
+            background-color .3s ease-in-out,
+            color .3s ease-in-out;
         }
 
         .photo {
@@ -36,6 +38,8 @@ const Bio = () => (
 
         @media (min-width: 768px) {
           .bio:hover {
+            color: #000;
+            background-color: #FFF;
             transform: rotate(10deg) scale(1.1);
             box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);
           }
