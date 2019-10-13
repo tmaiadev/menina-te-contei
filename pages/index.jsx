@@ -73,6 +73,10 @@ Home.propTypes = {
   ).isRequired,
   post: PropTypes.shape({
     id: PropTypes.string.isRequired,
+    category: PropTypes.shape({
+      id: PropTypes.string,
+      name: PropTypes.string,
+    }),
     title: PropTypes.string.isRequired,
     publishDate: PropTypes.string.isRequired,
     cover: PropTypes.string.isRequired,

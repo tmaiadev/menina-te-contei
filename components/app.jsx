@@ -14,11 +14,13 @@ const App = ({ children }) => (
         @font-face {
           font-family: 'Champagne & Limousines';
           src: url("/static/Champagne&Limousines.ttf") format("opentype");
+          font-display: swap;
         }
 
         @font-face {
           font-family: 'Bodoni MT';
           src: url("/static/BodoniMT.tff") format("opentype");
+          font-display: swap;
         }
 
         body {
@@ -42,6 +44,7 @@ const App = ({ children }) => (
           font-family: Arial;
           color: var(--primary-text-color);
           background-color: var(--primary-background-color);
+          overflow-x: hidden;
         }
 
         @media (prefers-color-scheme: darked) {
@@ -56,7 +59,7 @@ const App = ({ children }) => (
         }
 
         .cursive {
-          font-family: 'Midnight Signature', cursive;
+          font-family: 'Midnight Signature', 'Times New Roman';
         }
 
         .serif {

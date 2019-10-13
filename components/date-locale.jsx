@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 const DateLocale = ({ children }) => {
-  const [date, setDate] = useState(children.innerText);
+  const element = useRef();
 
   useEffect(() => {
-    const dt = new Date(children);
-    setDate(dt.toLocaleString());
+    const dt = new Date(element.current.innerText);
+    element.current.innerText = dt.toLocaleString();
   }, []);
 
   return (
-    <>
-      {date}
-    </>
+    <div ref={element}>
+      {children}
+    </div>
   );
 };
 
