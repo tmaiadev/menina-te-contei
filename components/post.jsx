@@ -72,7 +72,11 @@ Post.propTypes = {
     }),
     title: PropTypes.string.isRequired,
     publishDate: PropTypes.string.isRequired,
-    cover: PropTypes.string.isRequired,
+    cover: PropTypes.shape({
+      src: PropTypes.string,
+      width: PropTypes.number,
+      height: PropTypes.number,
+    }),
     body: PropTypes.string.isRequired,
   }).isRequired,
 };

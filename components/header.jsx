@@ -145,13 +145,13 @@ const Header = ({
 Header.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       name: PropTypes.string,
     }),
   ).isRequired,
   socialNetworks: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       type: PropTypes.oneOf(['instagram', 'facebook', 'twitter', 'youtube']),
       link: PropTypes.string,
     }),

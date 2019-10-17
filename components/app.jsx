@@ -33,6 +33,7 @@ const App = ({ children }) => (
 
           --primary-text-color: #000000;
           --secondary-text-color: #5F5F5F;
+          --tertiary-text-color: #444444;
 
           --size-1: 8px;
           --size-2: 16px;
@@ -49,12 +50,13 @@ const App = ({ children }) => (
 
         @media (prefers-color-scheme: darked) {
           body {
-            --primary-background-color: #323639;
+            --primary-background-color: #000;
             --secondary-background-color: #3b3b3b;
             --tertiary-background-color: #62605e;
 
             --primary-text-color: #FFF;
             --secondary-text-color: #CBCAC9;
+            --tertiary-text-color: #dfdedd;
           }
         }
 

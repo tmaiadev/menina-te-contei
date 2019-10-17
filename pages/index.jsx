@@ -4,14 +4,18 @@ import App from '../components/app';
 import Bio from '../components/bio';
 import Header from '../components/header';
 import Post from '../components/post';
+import Separator from '../components/separator';
+import Footer from '../components/footer';
 import {
   getCategories,
+  getSubCategories,
   getSocialNetworks,
   getLatestPost,
 } from '../helpers/db';
 
 const Home = ({
   categories,
+  subCategories,
   socialNetworks,
   post,
 }) => (
@@ -30,6 +34,14 @@ const Home = ({
         </aside>
       </div>
     </div>
+    <Separator>Favoritos</Separator>
+    FAVORITOS
+    <Separator>Posts Novos</Separator>
+    POSTS NOVOS
+    <Footer
+      categories={categories}
+      subCategories={subCategories}
+    />
     <style jsx>
       {`
         .container {
@@ -53,6 +65,7 @@ const Home = ({
 
 Home.getInitialProps = async () => ({
   categories: await getCategories(),
+  subCategories: await getSubCategories(),
   socialNetworks: await getSocialNetworks(),
   post: await getLatestPost(),
 });
@@ -60,13 +73,20 @@ Home.getInitialProps = async () => ({
 Home.propTypes = {
   categories: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
+      name: PropTypes.string,
+    }),
+  ).isRequired,
+  subCategories: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      category: PropTypes.string,
       name: PropTypes.string,
     }),
   ).isRequired,
   socialNetworks: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number,
+      id: PropTypes.string,
       type: PropTypes.oneOf(['instagram', 'facebook', 'twitter', 'youtube']),
       link: PropTypes.string,
     }),
@@ -79,7 +99,11 @@ Home.propTypes = {
     }),
     title: PropTypes.string.isRequired,
     publishDate: PropTypes.string.isRequired,
-    cover: PropTypes.string.isRequired,
+    cover: PropTypes.shape({
+      src: PropTypes.string,
+      width: PropTypes.number,
+      height: PropTypes.number
+    }),
     body: PropTypes.string.isRequired,
   }).isRequired,
 };
