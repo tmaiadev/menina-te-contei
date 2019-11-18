@@ -32,7 +32,7 @@ const Footer = ({
       }
     </div>
     <style jsx>
-      {`
+      {/*css*/`
         footer {
           padding: var(--size-2);
           color: var(--secondary-text-color);

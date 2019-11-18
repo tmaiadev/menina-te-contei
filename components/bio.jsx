@@ -13,7 +13,7 @@ const Bio = () => (
       Mari Guimarães
     </div>
     <style jsx>
-      {`
+      {/*css*/`
         .bio {
           background-color: var(--primary-background-color);
           box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
@@ -23,6 +23,8 @@ const Bio = () => (
             box-shadow .3s ease-in-out,
             background-color .3s ease-in-out,
             color .3s ease-in-out;
+          position: relative;
+          z-index: 1;
         }
 
         .photo {
@@ -40,7 +42,7 @@ const Bio = () => (
           .bio:hover {
             color: #000;
             background-color: #FFF;
-            transform: rotate(10deg) scale(1.1);
+            transform: rotate(1deg) scale(1.05);
             box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);
           }
         }

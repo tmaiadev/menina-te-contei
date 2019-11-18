@@ -1,9 +1,11 @@
 import React from 'react';
+import Head from 'next/head'
 import PropTypes from 'prop-types';
 import App from '../components/app';
 import Bio from '../components/bio';
 import Header from '../components/header';
 import Post from '../components/post';
+import SearchArticleForm from '../components/search-article-form';
 import Separator from '../components/separator';
 import Footer from '../components/footer';
 import {
@@ -20,6 +22,11 @@ const Home = ({
   post,
 }) => (
   <App>
+    <Head>
+      <meta charset="utf-8" />
+      <title>Menina te Contei</title>
+      <meta name="description" content={post.name} />
+    </Head>
     <Header
       categories={categories}
       socialNetworks={socialNetworks}
@@ -30,7 +37,10 @@ const Home = ({
           <Post post={post} />
         </main>
         <aside>
-          <Bio />
+          <div className="aside-content">
+            <Bio />
+            <SearchArticleForm />
+          </div>
         </aside>
       </div>
     </div>
@@ -43,12 +53,17 @@ const Home = ({
       subCategories={subCategories}
     />
     <style jsx>
-      {`
+      {/*css*/`
         .container {
           margin-right: auto;
           margin-left: auto;
           max-width: 1024px;
           padding: var(--size-2);
+        }
+
+        .aside-content {
+          position: sticky;
+          top: 0;
         }
 
         @media (min-width: 768px) {

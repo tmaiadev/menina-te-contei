@@ -14,7 +14,7 @@ const Button = ({
   >
     {children}
     <style jsx>
-      {`
+      {/*css*/`
         button {
           margin: 0px;
           padding: var(--size-1) var(--size-2);

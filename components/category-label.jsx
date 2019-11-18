@@ -12,7 +12,7 @@ const CategoryLabel = ({
     <a className="fancy">
       {name}
       <style jsx>
-        {`
+        {/*css*/`
           a {
             color: var(--accent-text-color);
             background-color: var(--accent-color);

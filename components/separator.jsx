@@ -6,7 +6,7 @@ const Separator = ({ children }) => (
     <div className="line" />
     <h2 className="cursive">{children}</h2>
     <style jsx>
-      {`
+      {/*css*/`
         .separator {
           display: block;
           position: relative;

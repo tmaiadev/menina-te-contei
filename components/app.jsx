@@ -5,7 +5,7 @@ const App = ({ children }) => (
   <div className="app">
     {children}
     <style jsx global>
-      {`
+      {/*css*/`
         @font-face {
           font-family: 'Midnight Signature';
           src: url("/static/MidnightSignature.otf") format("opentype");
@@ -48,7 +48,7 @@ const App = ({ children }) => (
           overflow-x: hidden;
         }
 
-        @media (prefers-color-scheme: darked) {
+        @media (prefers-color-scheme: dark) {
           body {
             --primary-background-color: #000;
             --secondary-background-color: #3b3b3b;

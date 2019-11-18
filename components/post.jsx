@@ -29,7 +29,7 @@ const Post = ({
     />
     <div className="body" dangerouslySetInnerHTML={{ __html: body }} />
     <style jsx>
-      {`
+      {/*css*/`
         .cat-label-wrapper {
           margin-bottom: 16px;
         }
